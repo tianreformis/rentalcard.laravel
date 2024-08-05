@@ -37,9 +37,9 @@ class RegisterController extends Controller
             'password' => 'required',
         ], [
             'name.required' => 'Nama tidak boleh kosong!',
-            'email.required' => 'Nama tidak boleh kosong!',
+            'email.required' => 'Email tidak boleh kosong!',
             'email.email' => 'Format email tidak benar!',
-            'password.required' => 'Nama tidak boleh kosong!',
+            'password.required' => 'Password tidak boleh kosong!',
 
         ]);
 
@@ -47,9 +47,11 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role'=>'admin',
-            
-        ]);
+            'role' => 'admin',
+
+        ]);        
+        session()->flash('success', 'Berhasil Didaftarkan..!');
+        return redirect()->route('register');
     }
 
     /**

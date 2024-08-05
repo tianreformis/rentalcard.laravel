@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Rent Car - Register</title>
+    <title>Rent Car - SignIn</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -41,43 +41,26 @@
             </div>
         </div>
         <!-- Spinner End -->
-
-
-        <!-- Sign Up Start -->
+        <!-- Sign In Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="index.html" class="">
-                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Rent Car</h3>
+                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>RENT Car</h3>
                             </a>
-                            <h3>Sign Up</h3>
+                            <h3>Sign In</h3>
                         </div>
-
-                        @if (@session()->has('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        <form action="{{ route('register.store') }}" method="POST">
+                        <form action="{{ route('login.proses') }}" method="POST">
                             @csrf
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="name" id="floatingText"
-                                    placeholder="Input Name" value="{{ @old('name') }}">
-                                {{-- @old berguna supaya ketika dimasukkan datanya tidak hilang --}}
-                                <label for="floatingText">Name</label>
-                            </div>
+
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="floatingInput" name="email"
-                                    placeholder="name@example.com" value="{{ @old('email') }}">
+                                    value="{{ @old('email') }}" placeholder="name@example.com">
                                 <label for="floatingInput">Email address</label>
                             </div>
 
@@ -86,26 +69,22 @@
                             @enderror
                             <div class="form-floating mb-4">
                                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                                    name="password" value="{{ @old('password') }}">
+                                    value="{{ @old('password') }}" name="password">
                                 <label for="floatingPassword">Password</label>
                             </div>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
-                                <a href="">Forgot Password</a>
-                            </div>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                            <p class="text-center mb-0">Already have an Account? <a href="{{ route('login') }}">Sign
-                                    In</a></p>
-                        </form>
 
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                            <p class="text-center mb-0">Don't have an Account? <a href="{{ route('register') }}">Sign
+                                    Up</a>
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Sign Up End -->
+        <!-- Sign In End -->
+
+
     </div>
 
     <!-- JavaScript Libraries -->
