@@ -14,3 +14,7 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.st
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login',[LoginController::class,'proses'])->name('login.proses');
 Route::get('login/keluar',[LoginController::class,'keluar'])->name('login.keluar');
+
+Route::get('users',function (){
+    return view('users.index');
+})->name('users')->middleware('auth');

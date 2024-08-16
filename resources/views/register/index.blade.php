@@ -89,6 +89,13 @@
                                     name="password" value="{{ @old('password') }}">
                                 <label for="floatingPassword">Password</label>
                             </div>
+
+                            <div class="form-floating mb-4">
+                                <input type="radio=" class="form-control" id="floatingPassword" placeholder="Password"
+                                    name="password" value="{{ @old('password') }}">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
